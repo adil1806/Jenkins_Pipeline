@@ -1,19 +1,9 @@
-pipeline{
-    agent any
+pipeline {
+    agent { docker { image 'ubuntu' } }
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
-                echo 'Building is started'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing is started'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying is started.....'
+                sh 'lsb_release -a'
             }
         }
     }
